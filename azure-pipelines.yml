@@ -2,7 +2,7 @@ trigger:
   - main  
 
 pool:
-  name: local-pipeline-agent
+  name: Default
 steps:
   - task: NodeTool@0
     inputs:
