@@ -1,5 +1,5 @@
 trigger:
-  - master   # change to main if your branch is main
+  - main  
 
 pool:
   vmImage: 'ubuntu-latest'
