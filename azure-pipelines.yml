@@ -2,8 +2,7 @@ trigger:
   - main  
 
 pool:
-  vmImage: 'ubuntu-latest'
-
+  name: local-pipeline-agent
 steps:
   - task: NodeTool@0
     inputs:
