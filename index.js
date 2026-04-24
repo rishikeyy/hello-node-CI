@@ -6,3 +6,4 @@ const success = true;
 if (!success) {
   throw new Error("Something failed!");
 }
+//added comment for fun
