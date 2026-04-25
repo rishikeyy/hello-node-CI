@@ -1,9 +1,13 @@
-console.log("Hello from CI pipeline 🚀");
+function checkSuccess() {
+  console.log("Hello from CI pipeline 🚀");
 
-// simulate a simple check
-const success = true;
+  const success = true;
 
-if (!success) {
-  throw new Error("Something failed!");
+  if (!success) {
+    throw new Error("Something failed!");
+  }
+
+  return "OK";
 }
-//added comment for fun
+
+module.exports = checkSuccess;
