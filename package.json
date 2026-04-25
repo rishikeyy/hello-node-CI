@@ -7,7 +7,9 @@
     "start": "node index.js",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "test:ci": "jest --ci --reporters=default --reporters=jest-junit"
+    "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
+    "build": "mkdir dist && copy index.js dist\\",
+    "package": "powershell Compress-Archive -Path dist -DestinationPath app.zip"
   },
   "devDependencies": {
     "jest": "^29.0.0",

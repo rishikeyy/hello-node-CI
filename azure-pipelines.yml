@@ -1,18 +1,38 @@
 trigger:
-  - main  
+- main
 
 pool:
-  name: Default
+  vmImage: 'ubuntu-latest'
+
 steps:
-  - task: NodeTool@0
-    inputs:
-      versionSpec: '18.x'
-    displayName: 'Install Node.js'
 
-  - script: |
-      npm install
-    displayName: 'Install dependencies'
+# 1. Install Node
+- task: NodeTool@0
+  inputs:
+    versionSpec: '18.x'
 
-  - script: |
-      npm start
-    displayName: 'Run app'
+# 2. Install deps
+- script: npm install
+  displayName: Install dependencies
+
+# 3. Run tests
+- script: npm run test:ci
+  displayName: Run tests
+
+# 4. Build app
+- script: npm run build
+  displayName: Build app
+
+# 5. Archive files
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: 'dist'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/app.zip'
+
+# 6. Publish artifact
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'drop'
