@@ -63,8 +63,7 @@ stages:
             artifact: drop
 
           - script: |
-              echo "Deploying..."
-              ls -R
+              echo Deploying...
+              dir
             displayName: Check files
 
-            
