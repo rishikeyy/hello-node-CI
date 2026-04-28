@@ -67,3 +67,9 @@ stages:
               dir
             displayName: Check files
 
+          - task: AzureWebApp@1
+            displayName: Deploy to Azure App Service
+            inputs:
+              azureSubscription: 'Azure subscription 1'  
+              appName: 'my-node-app11'                    
+              package: '$(Pipeline.Workspace)/drop/app.zip'
