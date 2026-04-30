@@ -71,5 +71,10 @@ stages:
             displayName: Deploy to Azure App Service
             inputs:
               azureSubscription: 'appService-serviceConnection'  
-              appName: 'devOpsApp'                    
+              appName: 'devOpsApp'       
+              appType: webAppLinux             
               package: '$(Pipeline.Workspace)/drop/app.zip'
+              scriptType: 'bash'
+              scriptLocation: 'inlineScript'
+              inlineScript: |
+                az webapp list --output table
