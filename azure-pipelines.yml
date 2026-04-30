@@ -71,5 +71,5 @@ stages:
             displayName: Deploy to Azure App Service
             inputs:
               azureSubscription: 'appService-serviceConnection'  
-              appName: 'PIPELINEfa'                    
+              appName: 'devOpsApp'                    
               package: '$(Pipeline.Workspace)/drop/app.zip'
