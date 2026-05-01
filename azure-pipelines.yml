@@ -70,7 +70,7 @@ stages:
           - task: AzureCLI@2
             inputs:
               azureSubscription: 'appService-serviceConnection'
-              scriptType: 'bash'
+              scriptType: 'ps'
               scriptLocation: 'inlineScript'
               inlineScript: |
                 az webapp list --output table
@@ -80,8 +80,8 @@ stages:
             inputs:
               azureSubscription: 'appService-serviceConnection'  
               appName: 'devOpsApp'       
-              appType: 'webApp'            
+              appType: 'webAppLinux'            
               package: '$(Pipeline.Workspace)/drop/app.zip'
                 
 
-                
+
