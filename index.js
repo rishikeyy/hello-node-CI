@@ -1,3 +1,8 @@
+const express = require('express');
+const app = express();
+
+const PORT = process.env.PORT || 3000;
+
 function checkSuccess() {
   console.log("Hello from CI pipeline 🚀");
 
@@ -9,5 +14,19 @@ function checkSuccess() {
 
   return "OK";
 }
+
+app.get('/', (req, res) => {
+  res.send(checkSuccess());
+});
+
+app.get('/health', (req, res) => {
+  res.json({
+    status: 'healthy'
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 module.exports = checkSuccess;
