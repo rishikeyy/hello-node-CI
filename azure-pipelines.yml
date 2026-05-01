@@ -82,4 +82,6 @@ stages:
               appName: 'devOpsApp'       
               appType: 'webApp'            
               package: '$(Pipeline.Workspace)/drop/app.zip'
-              
+                
+
+                
